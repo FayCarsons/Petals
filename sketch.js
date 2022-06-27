@@ -33,11 +33,11 @@ function draw() {
     for (let x = 0; x < gridSize; x++){
       t += 0.01
       n = roses[x*(gridSize)+y][0]
-      d = roses[x*(gridSize)+y][1]//+(sin(t*0.05))*180
+      d = roses[x*(gridSize)+y][1]+(sin(t*0.5))*40
 
       noFill()
       //stroke(255,250,250);
-      stroke(colors[x*gridSize+y],1)
+      stroke(colors[x*gridSize+y])
       beginShape()
       strokeWeight(1)
       for (let i = 0; i <= 360; i++){
@@ -47,7 +47,7 @@ function draw() {
         let b = (row ? r * cos(k+t) : r * sin(k+t))
         vertex((a/gridSize)+(x*sqr),(b/gridSize)+(y*sqr))
       }
-      endShape(CLOSE)
+      endShape()
     
       stroke(0);
       beginShape();
@@ -60,7 +60,7 @@ function draw() {
         let b = (row ? r * cos(k+t) : r * sin(k+t))
         vertex((a/gridSize)+(x*sqr),(b/gridSize)+(y*sqr))
       }
-      endShape(CLOSE);
+      endShape();
     }
   }
 } 
